@@ -86,11 +86,11 @@ def copy_notebooks():
                 for figname, newfigname in figure_map.items():
                     if figname in cell.source:
                         cell.source = cell.source.replace(figname, newfigname)
-                        
+
         nbformat.write(content, os.path.join(NB_DEST_DIR, nb))
 
-        pagefile = os.path.join(PAGE_DEST_DIR, base + '.md')
-        htmlfile = base.lower() + '.html'
+        pagefile = os.path.join(PAGE_DEST_DIR, f'{base}.md')
+        htmlfile = f'{base.lower()}.html'
         with open(pagefile, 'w') as f:
             f.write(PAGEFILE.format(title=title,
                                     htmlfile=htmlfile,
